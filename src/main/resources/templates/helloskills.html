@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Hello skills for linkedin LinkedIn</title>
+</head>
+<body>
+
+<h3>Hello, <span th:text="${linkedInProfile.firstName + ' ' + linkedInProfile.lastName}">Some User</span>!</h3>
+
+
+<h4>These are your connections:</h4>
+<ul>
+    <li th:each="skill:${skills}">
+    
+    <form action="courses/display" method="post">
+    
+    <span th:text="${skill}">skills</span>
+    
+    <input type="hidden" name="id" th:value="${skill}" />
+    
+        <input type="submit" value="Suggest Courses"/>
+    </form>
+    </li>
+</ul>
+<ul>
+    <li th:each="connection:${connections}" th:text="${connection.firstName + ' ' + connection.lastName}">Connection</li>
+</ul>
+
+</body>
+</html>

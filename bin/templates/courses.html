@@ -1,0 +1,35 @@
+
+<html>
+<head>
+    <title>Courses</title>
+    
+     <style>
+    	body { background-color: #eee; font: helvetica; }
+    	
+    </style>
+</head>
+<body>
+
+<div id="container">
+
+         <table border="1">
+	      <tr>
+	        <th>Course Id</th>
+	        <th>Short Name</th>
+	        <th>Name</th>
+	        <th>Course Description</th>
+	       
+	      </tr>
+	      <tr th:each="Course:${courseList}">
+	        <td th:text="${Course.id}"></td>
+	        <td th:text="${Course.shortName}"></td>
+	        <td th:text="${Course.name}"></td>
+	        <td th:text="${Course.desc}"></td>
+	       </tr>
+	    </table>
+
+
+						
+	</div>
+</body>
+</html>
