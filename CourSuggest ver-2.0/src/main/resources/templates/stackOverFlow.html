@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>MIaaS</title>
+    <link rel="stylesheet"  href="css/bootstrap.css" media="screen" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"/>
+    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <style>
+        .bs-example{
+            margin: 20px;
+        }
+        hr{
+            margin: 60px 0;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="bs-example">
+    <ul class="nav nav-pills">
+        <li class="active"><a href="#" style="font-size: medium; margin-left: 120px">Home</a></li>
+        <li class="dropdown; active">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle" style="font-size: medium; background-color: #337ab7">Skill Course Mapping <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><a href="/">Select Course</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Test Header</a></li>
+             </ul>
+        </li>
+     </ul>
+</div>
+
+
+<div class="bs-example">
+
+    <div class="bs-example">
+        <form class="form-horizontal" action="#" th:action="@{/}" th:object="${stackOverFlow}" method="post">
+             <div class="form-group">
+                <label  class="control-label col-xs-2">Select Skill</label>
+                <select id="listOfEmulatorAvd" class="form-control" style="width: 15%" th:field="*{skillDropDown}">
+                    <option value ="0">Select Skill</option>
+                    <option th:each="list : ${stackOverFlow.getSkillList()}" th:value="${list}"  th:text="${list}"></option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="inputCourseName" class="control-label col-xs-2">Course Name</label>
+                <div class="col-xs-10">
+                    <input  th:field="*{skillTextBox}" class="form-control" id="inputCourseName" placeholder="Enter Course Name" style="width: 30%;"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-offset-2 col-xs-10">
+                    <button type="submit" class="btn btn-primary">Search Courses</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+</div>
+
+
+</body>
+</html>
+
+

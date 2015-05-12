@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>MIaaS</title>
+    <link rel="stylesheet"  href="css/bootstrap.css" media="screen" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <style>
+        .bs-example{
+            margin: 20px;
+        }
+        hr{
+            margin: 60px 0;
+        }
+
+    </style>
+</head>
+<body>
+<script type="application/javascript">
+
+    function CallNewWindow(a)
+    {
+
+        window.open(a);
+    }
+</script>
+
+<div class="bs-example">
+    <ul class="nav nav-pills">
+        <li class="active"><a href="#" style="font-size: medium; margin-left: 120px">Home</a></li>
+        <li class="dropdown; active">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle" style="font-size: medium; background-color: #337ab7">Skill Course Mapping <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><a href="/">Select Course</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Test Header</a></li>
+            </ul>
+        </li>
+
+    </ul>
+</div>
+<div>
+    <table class="table table-bordered" style="width: 49%; margin-left: 20px">
+    <thead>
+    <tr>
+        <th>Skill Selected</th>
+        <th>Course Name</th>
+        <th>Course ShortName</th>
+        <th>Course Description</th>
+        <th>Course Url</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="list : ${stackOverFlowOutPut.courses}">
+        <td><p th:text=" ${stackOverFlowOutPut.getSkill()}"> </p></td>
+
+        <td>  <li class="list-group-item"  th:text="${list.getName()}"  th:value="${list.getName()}" >  </li></td>
+
+        <td>  <li class="list-group-item"  th:text="${list.getShortName()}"  th:value="${list.getShortName()}" ></li></td>
+
+        <td>  <li class="list-group-item"  th:text="${list.getShortdescription()}"  th:value="${list.getShortdescription()}" ></li></td>
+
+        <td>  <!-- <li class="list-group-item"  th:text="${list.getUrl()}"  th:value="${list.getUrl()}"  onclick="CallNewWindow('${list.getUrl()}') > </li>-->
+        <input type = "button" onclick="CallNewWindow(${list.getUrl()})" value = "Access_Course" />
+        </td>
+
+
+
+    </tr>
+
+    </tbody>
+</table>
+</div>
+</body>
+</html>
