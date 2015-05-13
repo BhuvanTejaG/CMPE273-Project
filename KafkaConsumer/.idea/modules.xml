@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/gs-spring-boot-initial.iml" filepath="$PROJECT_DIR$/gs-spring-boot-initial.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gs-spring-boot-initial - producer.iml" filepath="$PROJECT_DIR$/gs-spring-boot-initial - producer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gs-spring-boot-producer.iml" filepath="$PROJECT_DIR$/gs-spring-boot-producer.iml" />
+    </modules>
+  </component>
+</project>
