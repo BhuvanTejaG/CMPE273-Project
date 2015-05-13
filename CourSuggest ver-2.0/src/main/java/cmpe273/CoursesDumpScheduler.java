@@ -1,9 +1,5 @@
 package cmpe273;
 
-/**
- * Created by vipul on 5/10/2015.
- */
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.context.ApplicationContext;
@@ -17,43 +13,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-
-
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-import model.Coursera;
-import model.StackOverFlow;
-import model.StackOverFlowOutPut;
-import model.StackOverFlowParentModel;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.data.mongodb.core.MongoOperations;
-import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.converter.StringHttpMessageConverter;
-import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Component;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.client.HttpClientErrorException;
-import org.springframework.web.client.RestTemplate;
-
-import java.io.*;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.zip.GZIPInputStream;
 
+import model.Coursera;
 /**
  * Created by vipul on 5/10/2015.
  */
@@ -78,8 +42,7 @@ public class CoursesDumpScheduler {
             JSONObject jsonObject= new JSONObject(response);
             JSONArray listCourses= jsonObject.getJSONArray("elements");
 
-            ArrayList<Coursera> courseList = new ArrayList();
-
+            // ArrayList<Coursera> courseList = new ArrayList();
 
             for(int i=0; i<listCourses.length();i++){
                 JSONObject temp=listCourses.getJSONObject(i);
@@ -98,20 +61,12 @@ public class CoursesDumpScheduler {
 
             }
 
-
             System.out.println("----response1-------"+response);
 
-//stackOverFlowOutPut.setCourses();
-
-
+			//stackOverFlowOutPut.setCourses();
 
         }catch(HttpClientErrorException e){
 
         }
-
-
     }
-
-
-
 }
