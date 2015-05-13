@@ -1,13 +1,9 @@
 package model;
 
-/**
- * Created by vipul on 5/9/2015.
- */
-        import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-        import com.fasterxml.jackson.annotation.JsonProperty;
-
-        import java.util.ArrayList;
-        import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class StackOverFlowParentModel {
@@ -25,8 +21,6 @@ public class StackOverFlowParentModel {
 
     private  String has_more;
     private String quota_max;
-
-
 
     public String getHas_more() {
         return has_more;
