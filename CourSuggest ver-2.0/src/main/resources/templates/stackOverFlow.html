@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>MIaaS</title>
+    <title>CourSuggest</title>
     <link rel="stylesheet"  href="css/bootstrap.css" media="screen" />
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"/>
@@ -22,52 +22,70 @@
 
     </style>
 </head>
-<body>
+<body background="http://cdn.wonderfulengineering.com/wp-content/uploads/2014/07/background-wallpapers-31.jpg">
 
-<div class="bs-example">
-    <ul class="nav nav-pills">
-        <li class="active"><a href="#" style="font-size: medium; margin-left: 120px">Home</a></li>
-        <li class="dropdown; active">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle" style="font-size: medium; background-color: #337ab7">Skill Course Mapping <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-                <li><a href="/">Select Course</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Test Header</a></li>
-             </ul>
-        </li>
-     </ul>
+<div class="bs-example" align ="center" >
+<h3>Hello, <span th:text="${linkedInProfile.firstName + ' ' + linkedInProfile.lastName}">Some User</span>!</h3>
+<h3>&nbsp; &nbsp;&nbsp;Market Trending Skills:</h3>
+
 </div>
 
 
-<div class="bs-example">
+<div class="bs-example" align ="center">
 
     <div class="bs-example">
-        <form class="form-horizontal" action="#" th:action="@{/}" th:object="${stackOverFlow}" method="post">
+        <form class="form-horizontal" action="#" th:action="@{/courses}" th:object="${stackOverFlow}" method="post">
+        
+        <input type="hidden" name="userEmail" th:value="${userEmail}" ></input>
+        
              <div class="form-group">
-                <label  class="control-label col-xs-2">Select Skill</label>
                 <select id="listOfEmulatorAvd" class="form-control" style="width: 15%" th:field="*{skillDropDown}">
-                    <option value ="0">Select Skill</option>
+                    <option value ="0">Select Trending Skill</option>
                     <option th:each="list : ${stackOverFlow.getSkillList()}" th:value="${list}"  th:text="${list}"></option>
                 </select>
-            </div>
-
-            <div class="form-group">
-                <label for="inputCourseName" class="control-label col-xs-2">Course Name</label>
-                <div class="col-xs-10">
-                    <input  th:field="*{skillTextBox}" class="form-control" id="inputCourseName" placeholder="Enter Course Name" style="width: 30%;"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-xs-offset-2 col-xs-10">
+                <br/>
                     <button type="submit" class="btn btn-primary">Search Courses</button>
-                </div>
             </div>
+            
+            
         </form>
     </div>
 
 
 </div>
 
+<div  class="bs-example" align ="center" >
+
+<h3>&nbsp; &nbsp;&nbsp;Your LinkedIn Skills: </h3>
+
+<table class="table table-bordered" style="width: 30%; margin-left: 20px">
+    
+        <tr>
+        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Skill</th>
+        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Action</th>
+        </tr>
+   
+
+   
+    <tr th:each="Linkedskills:${Linkedskills}">
+    
+    <form class="form-horizontal" action="#" th:action="@{/linkedInCourses}"  method="post">
+    <input type="hidden" name="id" th:value="${Linkedskills}" ></input>
+    
+    <input type="hidden" name="userEmail" th:value="${userEmail}" ></input>
+
+    <td>  <li class="list-group-item"  th:text="${Linkedskills}" ></li></td>
+    <td>   <input type="submit" class="btn btn-primary" value="Suggest Courses" /></td>
+    
+    </form>
+    </tr>
+
+
+
+ 
+    </table>
+
+</div>
 
 </body>
 </html>

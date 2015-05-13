@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <title>MIaaS</title>
+    <title>CourSuggest</title>
     <link rel="stylesheet"  href="css/bootstrap.css" media="screen" />
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"/>
@@ -21,7 +21,8 @@
 
     </style>
 </head>
-<body>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type="application/javascript">
 
     function CallNewWindow(a)
@@ -29,23 +30,49 @@
 
         window.open(a);
     }
+    
+    
+    function sendEmail(courseId)
+    {
+    	
+    	
+    	var url = '/sendEmail';
+    	
+    	
+        
+        if (courseId != '') {
+            url = url + '/' +courseId;
+        }
+        
+      
+        
+        $.ajax({
+            type: "POST",
+              url: url,
+
+                    data: courseId,
+
+                    contentType: "text/html",
+
+                    success: alert("Email Sent"),
+
+
+                });
+       
+    }
+    
+    
 </script>
 
-<div class="bs-example">
-    <ul class="nav nav-pills">
-        <li class="active"><a href="#" style="font-size: medium; margin-left: 120px">Home</a></li>
-        <li class="dropdown; active">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle" style="font-size: medium; background-color: #337ab7">Skill Course Mapping <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-                <li><a href="/">Select Course</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Test Header</a></li>
-            </ul>
-        </li>
 
-    </ul>
+
+<body background="http://www.solidbackgrounds.com/images/1280x1024/1280x1024-light-blue-solid-color-background.jpg">
+
+<div class="bs-example" align ="center">
+<h3>Below are the course recommendations for the selected skill:</h3>
+<br/>
 </div>
-<div>
+<div align="center">
     <table class="table table-bordered" style="width: 49%; margin-left: 20px">
     <thead>
     <tr>
@@ -54,6 +81,7 @@
         <th>Course ShortName</th>
         <th>Course Description</th>
         <th>Course Url</th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
@@ -66,8 +94,14 @@
 
         <td>  <li class="list-group-item"  th:text="${list.getShortdescription()}"  th:value="${list.getShortdescription()}" ></li></td>
 
-        <td>  <!-- <li class="list-group-item"  th:text="${list.getUrl()}"  th:value="${list.getUrl()}"  onclick="CallNewWindow('${list.getUrl()}') > </li>-->
-        <input type = "button" onclick="CallNewWindow(${list.getUrl()})" value = "Access_Course" />
+        <td> 
+
+        <input type="button"  value="Access_Course" th:onclick="'javascript:CallNewWindow(\'' + ${list.getUrl()} + '\');'" />
+  
+        </td>
+        
+        <td>
+        <input type="button"  value="Send_Mail" th:onclick="'javascript:sendEmail(\'' + ${list.getId()} + '\');'" />
         </td>
 
 
