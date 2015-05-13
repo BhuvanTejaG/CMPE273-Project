@@ -1046,6 +1046,9 @@
     </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="f9360246-85cb-4241-95e8-ffaa33f038ad" name="Default" comment="" />
@@ -1055,12 +1058,12 @@
       <workItem from="1429415799031" duration="5469000" />
       <workItem from="1429487633833" duration="20481000" />
       <workItem from="1429584523683" duration="29000" />
-      <workItem from="1431541710936" duration="258000" />
+      <workItem from="1431541710936" duration="577000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26237000" />
+    <option name="totallyTimeSpent" value="26556000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="1" />
