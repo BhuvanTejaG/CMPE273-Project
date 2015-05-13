@@ -21,6 +21,21 @@
         }
 
     </style>
+<script>
+    function ValidateForm(form){ 
+    	var flag= false;
+        if ( form.listOfEmulatorAvd.value == 0 ) {
+        	flag =true;
+             alert ( "Please select a value" ); 
+             return false; 
+        } else if(flag == false ){ 
+            form.submit()
+        } 
+    } 
+    </script>
+	
+	
+
 </head>
 <body background="http://cdn.wonderfulengineering.com/wp-content/uploads/2014/07/background-wallpapers-31.jpg">
 
@@ -44,7 +59,7 @@
                     <option th:each="list : ${stackOverFlow.getSkillList()}" th:value="${list}"  th:text="${list}"></option>
                 </select>
                 <br/>
-                    <button type="submit" class="btn btn-primary">Search Courses</button>
+                   <button type="button" class="btn btn-primary"  onClick="ValidateForm(this.form)">Search Courses</button>
             </div>
             
             
