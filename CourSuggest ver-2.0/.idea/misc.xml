@@ -37,11 +37,17 @@
   <component name="GradleLocalSettings">
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="2862431029117" />
+        <entry key="$PROJECT_DIR$" value="2862627848000" />
+        <entry key="$PROJECT_DIR$/../../gs-spring-boot-initial" value="1431365154288" />
+        <entry key="$PROJECT_DIR$/../../gs-spring-boot-initial - producer" value="1431365154288" />
+        <entry key="$PROJECT_DIR$/../../gs-spring-boot-producer" value="1431365154288" />
+        <entry key="$USER_HOME$/Downloads/CMPE_Final/CMPE_Final" value="2862431029117" />
+        <entry key="$USER_HOME$/Downloads/CMPE_Final/CMPE_FinalWithUI/CMPE_FinalWithUI" value="2862627848539" />
+        <entry key="$USER_HOME$/SJSU/Spring 2015/CMPE 273/Project Linkedin Coursera/kafka-consumer-master/kafka-consumer-master" value="1428485128000" />
       </map>
     </option>
   </component>
-  <component name="IdProvider" IDEtalkID="50D0A111C01D29AD3B0FDF912002E07B" />
+  <component name="IdProvider" IDEtalkID="14CBEF1507BCA2ADB03B26F91A57A376" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />

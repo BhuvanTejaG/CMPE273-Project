@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>CourSuggest</title>
+    <link rel="stylesheet"  href="css/bootstrap.css" media="screen" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"/>
+    <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <style>
+        .bs-example{
+            margin: 20px;
+        }
+        hr{
+            margin: 60px 0;
+        }
+
+    </style>
+</head>
+<body background="http://cdn.wonderfulengineering.com/wp-content/uploads/2014/07/background-wallpapers-31.jpg">
+
+<div class="bs-example" align ="center" >
+<h3>Hello, <span th:text="${linkedInProfile.firstName + ' ' + linkedInProfile.lastName}">Some User</span>!</h3>
+<h3>&nbsp; &nbsp;&nbsp;Market Trending Skills:</h3>
+
+</div>
+
+
+<div class="bs-example" align ="center">
+
+    <div class="bs-example">
+        <form class="form-horizontal" action="#" th:action="@{/courses}" th:object="${stackOverFlow}" method="post">
+        
+        <input type="hidden" name="userEmail" th:value="${userEmail}" ></input>
+        
+             <div class="form-group">
+                <select id="listOfEmulatorAvd" class="form-control" style="width: 15%" th:field="*{skillDropDown}">
+                    <option value ="0">Select Trending Skill</option>
+                    <option th:each="list : ${stackOverFlow.getSkillList()}" th:value="${list}"  th:text="${list}"></option>
+                </select>
+                <br/>
+                    <button type="submit" class="btn btn-primary">Search Courses</button>
+            </div>
+            
+            
+        </form>
+    </div>
+
+
+</div>
+
+<div  class="bs-example" align ="center" >
+
+<h3>&nbsp; &nbsp;&nbsp;Your LinkedIn Skills: </h3>
+
+<table class="table table-bordered" style="width: 30%; margin-left: 20px">
+    
+        <tr>
+        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Skill</th>
+        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Action</th>
+        </tr>
+   
+
+   
+    <tr th:each="Linkedskills:${Linkedskills}">
+    
+    <form class="form-horizontal" action="#" th:action="@{/linkedInCourses}"  method="post">
+    <input type="hidden" name="id" th:value="${Linkedskills}" ></input>
+    
+    <input type="hidden" name="userEmail" th:value="${userEmail}" ></input>
+
+    <td>  <li class="list-group-item"  th:text="${Linkedskills}" ></li></td>
+    <td>   <input type="submit" class="btn btn-primary" value="Suggest Courses" /></td>
+    
+    </form>
+    </tr>
+
+
+
+ 
+    </table>
+
+</div>
+
+</body>
+</html>
+
+
