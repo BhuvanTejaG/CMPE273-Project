@@ -7,9 +7,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
-/**
- * Created by saung on 4/7/15.
- */
 @Component
 public class ScheduledEmailTask {
 
